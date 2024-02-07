@@ -1,0 +1,103 @@
+doctype html
+html
+  head
+    title My Website
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC', crossorigin='anonymous')
+    link(rel='stylesheet', type='text/css', href='./styles.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark(style='font-size: larger; height: 90px;')
+      div.d-flex.align-items-center
+        a.navbar-brand(href='home.html', style='padding-left: 20px;')
+          img(src='ccc5356effa75abb28f52b9e45a7d37e.jpg', width='30', height='30', alt='')
+          | Holidays
+        div.collapse.navbar-collapse#navbarNavDropdown
+          ul.navbar-nav(style='padding-left: 520px;')
+            li.nav-item
+              a.nav-link(href='home.html') Home
+            li.nav-item#table(style='display: none;')
+              a.nav-link(href='user.html') Admin
+            li.nav-item
+              a.nav-link(href='concert.html') Music concert
+            li.nav-item
+              a.nav-link(href='tour.html') Tourism
+            li.nav-item
+              a.nav-link(href='contact.html') Contact
+            li.nav-item
+              a.nav-link(href='demo.html') Logout
+    div.image-container
+      img(src='5c47eac79c7c7d5c211500c9a9d01759.jpg', alt='Image 1', class='active')
+      img(src='028e3900f8dcbc9c25d5eb6a9afd8182.jpg', alt='Image 2')
+      img(src='ccc5356effa75abb28f52b9e45a7d37e.jpg', alt='Image 3')
+    div.headingcontent
+      h1(style='text-align: center;') Trendz Holidays
+      p(style='text-align: center;')
+        b We have the best plans!
+    div.image-containerk
+      div.image
+        img(src='pexels-photo-3769138.jpeg', alt='Image 1')
+        div.image-overlay
+          h2 World tour
+      div.image
+        img(src='pexels-marinko-krsmanovic-2651794.jpg', alt='Image 2')
+        div.image-overlay
+          h2 Music band
+      div.image
+        img(src='pexels-karolina-grabowska-5650026.jpg', alt='Image 3')
+        div.image-overlay
+          h2 Offers
+    div.container-wrapper
+      .container-t
+        img.img1(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHuP-yIFPrGWCqWgj-nnTHr1Ry0NS8I7fPNg&usqp=CAU', alt='Image 1')
+        h2 Music concert
+        p 100+ events conducted. November concert with famous musician are there.
+      .container-t
+        img.img1(src='https://media.istockphoto.com/id/492527613/vector/travel-design.jpg?s=170667a&w=0&k=20&c=-674swzDpuFyLruny_S4W-sZpHprEXqJ13UNyADc00Y=', alt='Image 2')
+        h2 Tourism
+        p Package include famous tourist places like Tajmahal and so on.
+      .container-t
+        img.img1(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Lgbe_kDfBIdCSnHzaWkXdAwEF76pvDLASw&usqp=CAU', alt='Image 3')
+        h2 Bookings
+        p Bookings open, kindly check concert page and tourism page. Book your tickets now.
+    script.
+      var images = document.querySelectorAll(".image-container img");
+      var currentImage = 0;
+      function showImage(n) {
+        images[currentImage].classList.remove("active");
+        currentImage = (n + images.length) % images.length;
+        images[currentImage].classList.add("active");
+      }
+      function nextImage() {
+        showImage(currentImage + 1);
+      }
+      function previousImage() {
+        showImage(currentImage - 1);
+      }
+      setInterval(nextImage, 5000);
+      let admin=document.getElementById("table")
+      var logger=sessionStorage.getItem("users");
+      console.log(logger)
+      var logged=JSON.parse(logger)
+      console.log(logged.role==='admin')
+      if(logged.role==='admin'){
+          admin.style.display="block"
+          console.log(logger)
+      }
+      else{
+         console.log("no user found")
+      }
+    footer
+      div.box-container
+        div.box
+          h3 Contact
+          p Email: keetz@gmail.com
+          p Phone: 123-456-7890
+        div.box
+          h3 About
+          p We have the best music concert and tour plans
+        div.box
+          h3 Location
+          p 123 Main Street, Dubai Main road, Dubai
+      br
+      p(style='color: aliceblue;') &copy; 2023 Keetz holidays. All rights reserved.

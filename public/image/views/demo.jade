@@ -1,0 +1,118 @@
+doctype html
+html
+  head
+    title My Website
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // Bootstrap CSS
+    // include styles.css
+    // style(type="text/css")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", crossorigin="anonymous")
+    link(rel="stylesheet", type="text/css", href="/static/css/styles.css")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+  body(background="/static/image/a8cab40488c754dc54f28d25a7e7c68b.jpg")
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark(style="font-size: larger; height: 90px;")
+      div.d-flex.align-items-center
+        a.navbar-brand(href="home.html", style="padding-left: 20px;")
+          img(src="ccc5356effa75abb28f52b9e45a7d37e.jpg", width="30", height="30", alt="")
+          | Holidays
+        div.collapse.navbar-collapse#navbarNavDropdown
+          ul.navbar-nav(style="padding-left: 520px;")
+            // li.nav-item
+            //   a.nav-link(href="home.html") Home
+            li.nav-item(style="margin-left: 300px;")
+              a.nav-link(href="./demo.html") Login
+            li.nav-item
+              a.nav-link(href="signup.html") Signup
+
+    div.container-s
+      h2(style="text-align: center;") Welcome back
+      p(style="text-align: center;") 
+        b Login here
+      form#login(method="post")
+        div.row.mb-3
+          div.col
+            label.form-label(for="mailid") Email:*
+            input.form-control(type="text", id="mailid", placeholder="Enter your Email")
+        div.row.mb-3
+          div.col
+            label.form-label(for="password") Password:*
+            input.form-control(type="password", id="userpassword", placeholder="Enter your password")
+        div.row.mb-3
+          div.col
+            a.text-decoration-none(href="forgot.html") Forgot Password?
+        div.row.mb-3
+          div.col
+            button.btn.btn-primary#submit(onclick="check()") Login
+        div.row
+          div.col
+            p Don't have an account? 
+              a.text-decoration-none(href="signup.html") Sign up
+
+    script(src="script.js")
+    script.
+      $(document).ready(function () {
+        $("#login").submit(function (event) {
+          event.preventDefault();
+          const email = $("#mailid").val();
+          const password = $("#userpassword").val();
+          const formDataJson = {
+            email: email,
+            password: password,
+          };
+          $.ajax({
+            url: "/api/template/postlogin",
+            type: "POST",
+            data: JSON.stringify(formDataJson),
+            contentType: "application/json",
+            success: function (data) {
+              if (data) {
+                
+                sessionStorage.setItem("token", JSON.stringify(data.token))
+                //sessionStorage.setItem("users", JSON.stringify(data.user));
+                //sessionStorage.setItem("token", JSON.stringify(data.token));
+                alert("Login successful");
+                console.log("success");
+                window.location.href = "home?auth="+data.token;
+
+              } else {
+                alert("Login failed" + data.message);
+              }
+            },
+            error: function (xhr, status, error) {
+              alert("Login Failed");
+              console.error("Error:", error); 
+            }
+          });
+        });
+
+        $.ajax({
+          url: 'http://localhost:3001/api/footer', 
+          type: 'GET',
+          success: function(data) {
+            $("#email").text("Email: " + data.content.contact.email);
+            $("#phone").text("Phone: " + data.content.contact.phone);
+            $("#or").text(data.content.about);
+            $("#not").text(data.content.location);
+          },
+          error: function (xhr, status, error){
+            console.error("Error:", error);
+          },
+        });
+      })
+      
+    footer#footer
+      div.box-container
+        div.box
+          h3 Contact
+          p#email
+          p#phone
+        div.box
+          h3 About
+          p#or
+        div.box
+          h3 Location
+          p#not
+      br
+      p(style="color: aliceblue;") &copy; 2023 Keetz holidays. All rights reserved.

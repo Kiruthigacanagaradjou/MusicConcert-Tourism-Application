@@ -1,0 +1,43 @@
+doctype html
+head 
+ style.
+  .myclass{
+    color:green;
+  }
+body
+     
+      - let age=21
+      h1.myclass Welcome to jade #{name} #{age}
+      case age 
+         when 21
+          p age is 21
+         when 20
+          p age is 20
+      
+      -for(var i=0;i<3;i++)
+          li #{name}
+      
+      each i in ["<b>1</b>",2,3]
+          //li!=i
+      
+      if !age 
+       p #{age} 
+    
+      p#para
+       | this is para 
+
+      mixin list 
+       ul 
+        li 1
+        li 2
+        li 3
+       +list 
+       +list
+
+      script.
+        const mypara = document.getElementById("para") 
+        mypara.innerHTML="this is my para"
+        
+        const token=JSON.parse("#{JSON.stringify(token)}".replace(/&quot;/g,'"'))
+        sessionStorage.setItem("token",token.token)
+        console.log(token)
