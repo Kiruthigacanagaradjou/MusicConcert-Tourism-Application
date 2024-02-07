@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size: larger; height: 90px;">
+    
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand" href="home.html" style="padding-left: 20px;">
+        <img src="ccc5356effa75abb28f52b9e45a7d37e.jpg" width="30" height="30" alt="">
+        Holidays
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav" style="padding-left: 520px;">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item" id="table" style="display: none;"><a class="nav-link" href="user.html">Admin</a></li>
+          <li class="nav-item"><a class="nav-link" href="concert.html">Music concert</a></li>
+          <li class="nav-item"><a class="nav-link" href="tour.html">Tourism</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="demo.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="image-container">
+  <img src="5c47eac79c7c7d5c211500c9a9d01759.jpg" alt="Image 1" class="active">
+  <img src="028e3900f8dcbc9c25d5eb6a9afd8182.jpg" alt="Image 2">
+  <img src="ccc5356effa75abb28f52b9e45a7d37e.jpg" alt="Image 3">
+</div>
+<div class="headingcontent">
+  <h1 style="text-align: center;">Trendz Holidays</h1>
+  <p  style="text-align: center;"><b>We have the best plans!</b></p>
+</div>
+
+<div class="image-containerk">
+<div class="image">
+  <img src="pexels-photo-3769138.jpeg" alt="Image 1">
+  <div class="image-overlay">
+    <h2>World tour</h2>
+  </div>
+</div>
+<div class="image">
+  <img src="pexels-marinko-krsmanovic-2651794.jpg" alt="Image 2">
+  <div class="image-overlay">
+    <h2>Music band</h2>
+  </div>
+</div>
+<div class="image">
+  <img src="pexels-karolina-grabowska-5650026.jpg" alt="Image 3">
+  <div class="image-overlay">
+    <h2>Offers</h2>
+  </div>
+</div>
+</div>
+
+  <div class="container-wrapper">
+    <div class="container-t">
+      <img class="img1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHuP-yIFPrGWCqWgj-nnTHr1Ry0NS8I7fPNg&usqp=CAU" alt="Image 1">
+      <h2>Music concert</h2>
+      <p>100+ events conducted. November concert with famous musician are there.</p>
+    </div>
+
+    <div class="container-t">
+      <img class="img1" src="https://media.istockphoto.com/id/492527613/vector/travel-design.jpg?s=170667a&w=0&k=20&c=-674swzDpuFyLruny_S4W-sZpHprEXqJ13UNyADc00Y=" alt="Image 2">
+      <h2>Tourism</h2>
+      <p>Package include famous tourist places like Tajmahal and so on.</p>
+    </div>
+
+    <div class="container-t">
+      <img class="img1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Lgbe_kDfBIdCSnHzaWkXdAwEF76pvDLASw&usqp=CAU" alt="Image 3">
+      <h2>Bookings</h2>
+      <p>Bookings open, kindly check concert page and touism page. Book your tickets now.</p>
+    </div>
+  </div>
+
+  <script>
+    var images = document.querySelectorAll(".image-container img");
+    var currentImage = 0;
+    function showImage(n) {
+      images[currentImage].classList.remove("active");
+      currentImage = (n + images.length) % images.length;
+      images[currentImage].classList.add("active");
+    }
+    function nextImage() {
+      showImage(currentImage + 1);
+    }
+    function previousImage() {
+      showImage(currentImage - 1);
+    }
+    setInterval(nextImage, 5000);
+//navbar
+    // var logger=sessionStorage.getItem("logusers");
+    //    if(logger){
+    //     var logged=JSON.parse(logger);
+    //    }
+    //   else{
+    //     console.log("no user found")
+    //   }
+    //   let admin=document.getElementById("table")
+    //   if(logged.role === "admin"){
+    //     admin.style.display="block"
+    //     console.log("inside")
+    //   }
+
+    //     const queryString = window.location.search;
+    //     const urlParams = new URLSearchParams(queryString);
+    //     //console.log(urlParams)
+    //     const role = urlParams.get('role');
+    //     //console.log(role)
+    //     if (role === 'admin') {
+    //       document.getElementById('adm').style.display = 'block';
+    //     //console.log("admin")
+    //     }
+    let admin=document.getElementById("table")
+      var logger=sessionStorage.getItem("users");
+      console.log(logger)
+      var logged=JSON.parse(logger)
+      console.log(logged.role==='admin')
+      if(logged.role==='admin'){
+          admin.style.display="block"
+          console.log(logger)
+      }
+      else{
+         console.log("no user found")
+      }
+
+
+
+
+
+
+  </script>
+
+
+  <footer>
+    <div class="box-container">
+      <div class="box">
+        <h3>Contact</h3>
+        <p>Email: keetz@gmail.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+
+      <div class="box">
+        <h3>About</h3>
+        <p>We have a best music consert and tour plans</p>
+      </div>
+
+      <div class="box">
+        <h3>Location</h3>
+        <p>123 Main Street, Dubai Main road, Dubai</p>
+      </div>
+    </div>
+    <br>
+
+    <p style="color: aliceblue;">&copy; 2023 Keetz holidays. All rights reserved.</p>
+  </footer>
+ 
+</body>
+
+</html>
+

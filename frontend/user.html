@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size: larger; height: 90px;">
+
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand" href="home.html" style="padding-left: 20px;">
+        <img src="ccc5356effa75abb28f52b9e45a7d37e.jpg" width="30" height="30" alt="">
+        Holidays
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav" style="padding-left: 520px;">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="demo.html">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
+          <li class="nav-item"><a class="nav-link" href="concert.html">Music concert</a></li>
+          <li class="nav-item"><a class="nav-link" href="tour.html">Tourism</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h2 style="text-align: center; padding: 20px;">User details</h2>
+
+  <table style="margin-left: 80px;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>Role</th>
+        <th>isActive</th>
+        <th>Created At</th>
+        <th>Edit</th>
+        <th>Updated At</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="userTable">
+    </tbody>
+  </table>
+
+
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h2 style="text-align: center;">Edit User</h2>
+      <form id="editForm" class="row mb-3" style="margin-left: 30px;">
+        <label for="editName" class="form-label">Name:</label>
+        <input type="text" id="editName" class="form-control" style="width: 400px; margin-left: 20px;">
+        <br>
+        <label for="editEmail" class="form-label">Email:</label>
+        <input type="email" id="editEmail" class="form-control" style="width: 400px; margin-left: 20px;" required>
+        <br>
+        <label for="editPassword" class="form-label">Password:</label>
+        <input type="password" id="editPassword" class="form-control" style="width: 400px; margin-left: 20px;" required>
+        <br>
+        <label for="editCountry" class="form-label">Country:</label>
+                <select class="form-select" id="editCountry" onchange="states(); updateCountryCode();" style="width: 400px; margin-left: 20px;">
+                    <option value="">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="IND">India</option>
+                    <option value="UK">UK</option>
+                </select>
+        <br>
+     
+        <label for="editState" class="form-label">State:</label>
+                <select class="form-select" id="editState" name="state" style="width: 400px; margin-left: 20px;">
+                    <option value="">Select State</option>
+                </select>
+        <br>
+        <div class="col">
+        <button type="submit" class="btn btn-dark" onclick="editrecord()" style=" margin-top: 20px;align-self: center;">Save</button></div>
+        <div class="col">
+        <button type="button" id="cancelEdit" class="btn btn-dark" onclick="closeModal()" style=" margin-top: 20px; margin-right: 440px;">Cancel</button></div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <br><br>
+  <br><br>
+  <br><br>
+  <!--h2 style="text-align: center;">Booking Details</h2>
+  <table id="bookingTable" style="margin-left: 100px;width: 90%;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Ticket</th>
+        <th>Actions</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody id="bookingTableBody"></tbody>
+  </table-->
+
+
+
+  <br><br>
+
+  <br><br>
+
+  <br><br>
+  <script>
+    var rowIndex;
+    var userId;
+    var sessiondata=JSON.parse(sessionStorage.getItem("users"))
+    console.log(sessiondata)
+    const authdata=sessiondata.email+":"+sessiondata.password+":"+sessiondata.role
+    console.log(authdata)
+    $.ajax({
+      url: "http://localhost:3001/api/users/allusers",
+      type: "GET",
+      dataType: "json",
+      headers:{auth:btoa(authdata)},
+      success: function (data) {
+        users = data
+        insertvalue(data)
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      }
+    });
+
+    function insertvalue() {
+      var tableBody = document.getElementById("userTable");
+      users.forEach(function (user) {
+        var row = tableBody.insertRow();
+        var rowIndex;
+        row.insertCell().textContent = user.name;
+        row.insertCell().textContent = user.email;
+        row.insertCell().textContent = user.password;
+        row.insertCell().textContent = user.country;
+        row.insertCell().textContent = user.state;
+        row.insertCell().textContent = user.role;
+        row.insertCell().textContent = user.isActive;
+        //row.insertCell().textContent = user.phone;
+        row.insertCell().textContent = user.createdAt;
+        var editCell = row.insertCell();
+        var editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+        editButton.classList.add("btn", "btn-outline-secondary")
+        editButton.addEventListener("click", function () {
+          openModal(user);
+          rowIndex=this.parentNode.parentNode.rowIndex;
+          var userdata=users[rowIndex-1];
+          console.log(rowIndex)
+          userId=userdata._id
+        });
+        editCell.appendChild(editButton);
+        var timeCell = row.insertCell();
+        timeCell.textContent = user.updatedAt;
+        var deleteCell = row.insertCell();
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("btn", "btn-outline-danger");
+        deleteButton.addEventListener("click", function () {
+           deleteUser(user._id);
+          // userId=userdata._id
+         
+        });
+        deleteCell.appendChild(deleteButton);
+
+      });
+    }
+
+    var editModal = document.getElementById("editModal");
+    var editForm = document.getElementById("editForm");
+    function openModal(user) {
+      document.getElementById("editName").value = user.name;
+      document.getElementById("editEmail").value = user.email;
+      document.getElementById("editPassword").value = user.password;
+      document.getElementById("editCountry").value = user.country;
+      document.getElementById("editState").value = user.state;      
+      editModal.style.display = "block";
+    }
+
+    function closeModal() {
+      editModal.style.display = "none";
+    }
+
+    function editrecord() {
+      //alert(userId)
+      //var Userid = user._id;
+      var usermail = document.getElementById("editEmail").value;
+      var userpwd = document.getElementById("editPassword").value;
+      var username = document.getElementById("editName").value;
+      var usercountry = document.getElementById("editCountry").value;
+      var userstate = document.getElementById("editState").value;
+     // var updatedAt = new Date().toLocaleString();
+      
+      var newobj = {
+        email: usermail,
+        password: userpwd,
+        name: username,
+        country:usercountry,
+        state:userstate
+      }
+      console.log(newobj)
+      $.ajax({
+        type: 'PUT',
+        url: `http://localhost:3001/api/updateUser/${userId}`,
+        data: JSON.stringify(newobj),
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (response) {
+          console.log(response)
+          console.log("User details updated", response)
+          alert("user record updated")
+        },
+        error: function (xhr, status, error) {
+          console.error("Error:", error);
+        }
+      });
+
+    }
+
+    function deleteUser(userId) {
+        $.ajax({
+          type: "DELETE",
+          url: `http://localhost:3001/api/deleteUser/${userId}`,
+          success: function (deleteUser) {
+            location.reload();
+            console.log("User deleted successfully");
+            alert("User deleted successfully");
+          },
+          error: function (xhr, status, error) {
+            console.error("Error:", error);
+          },
+        });
+      
+    }
+
+
+    var stateSl=document.getElementById("editState");
+      function states(){
+          var countrySelect = document.getElementById('editCountry');
+          var sc = countrySelect.value;
+          stateSl.innerHTML = '<option value="">Select State</option>';
+        if (sc == 'USA') {
+          UsStates();
+        } 
+        else if(sc == 'IND'){
+          IndStates();
+        }
+        else if(sc == 'UK'){
+          UkStates();
+        }
+      }
+      function UsStates() {
+        var usStates = ['Alaska', 'Arizona','Delaware', 'Florida', 'Georgia'];
+        for (var i = 0; i<usStates.length; i++) {
+          var option = document.createElement('option');
+          option.value = usStates[i];
+          option.textContent = usStates[i];
+          stateSl.append(option);
+        }
+      }
+      function IndStates() {
+        var indStates = ['Assam', 'Jammu','Jharkhand', 'Kerala', 'Tamilnadu'];
+        for (var i = 0; i<indStates.length; i++) {
+          var option = document.createElement('option');
+          option.value = indStates[i];
+          option.textContent = indStates[i];
+          stateSl.append(option);
+        }
+      }
+      function UkStates() {
+        var ukStates = ['Ireland', 'England','Wales', 'Scotland'];
+        for (var i = 0; i<ukStates.length; i++) {
+          var option = document.createElement('option');
+          option.value = ukStates[i];
+          option.textContent = ukStates[i];
+          stateSl.append(option);
+        }
+      }
+
+
+  </script>
+
+
+  <footer>
+    <div class="box-container">
+      <div class="box">
+        <h3>Contact</h3>
+        <p>Email: keetz@gmail.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+
+      <div class="box">
+        <h3>About</h3>
+        <p>We have a best music consert and tour plans</p>
+      </div>
+
+      <div class="box">
+        <h3>Location</h3>
+        <p>123 Main Street, Dubai Main road, Dubai</p>
+      </div>
+    </div>
+    <br>
+
+    <p style="color: aliceblue;">&copy; 2023 Keetz holidays. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>

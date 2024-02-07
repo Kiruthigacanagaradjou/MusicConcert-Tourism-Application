@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    title My Website
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    // Bootstrap CSS
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+    link(rel='stylesheet' type='text/css' href='/static/css/styles.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark(style='font-size: larger; height: 90px;')
+      .d-flex.align-items-center
+        a.navbar-brand(href='/api/template/home' style='padding-left: 20px;')
+          img(src='/static/image/ccc5356effa75abb28f52b9e45a7d37e.jpg' width='30' height='30' alt='')
+          |         Holidays
+        #navbarNavDropdown.collapse.navbar-collapse
+          ul.navbar-nav(style='padding-left: 520px;')
+            li.nav-item
+              a.nav-link(href='/api/template/home') Home
+            li.nav-item
+              a.nav-link(href='/api/template/login') Login
+            li.nav-item
+              a.nav-link(href='/api/template/signup') Signup
+            li.nav-item
+              a.nav-link(href='/api/template/concert') Music concert
+            li.nav-item
+              a.nav-link(href='/api/template/tour') Tourism
+            li.nav-item
+              a.nav-link(href='/api/template/contact') Contact
+    h1(style='text-align: center;padding: 20px;') Tourism
+    .container-l
+      .column
+        .image
+          img(src='https://assets-news.housing.com/news/wp-content/uploads/2022/07/12214204/best-places-to-visit-in-Tamil-Nadu-Chennai-shutterstock_1731845158.jpg' alt='Image 1')
+      .column1
+        .description
+          h5 CHENNAI
+          p
+            | Famous places include Government Museum Chennai, Santhome Cathedral Basilica, Fort St George Museum, Elliot’s Beach, Vivekananda House, etc. Chennai is connected by an international airport and railway station so tourists can reach the city from any corner of the world.
+    .container-l
+      .column
+        .image
+          img(src='https://assets-news.housing.com/news/wp-content/uploads/2022/07/12214204/best-places-to-visit-in-Tamil-Nadu-Chennai-shutterstock_1731845158.jpg' alt='Image 1')
+      .column1
+        .description
+          h5 CHENNAI
+          p
+            | Famous places include Government Museum Chennai, Santhome Cathedral Basilica, Fort St George Museum, Elliot’s Beach, Vivekananda House, etc. Chennai is connected by an international airport and railway station so tourists can reach the city from any corner of the world.
+    .container-l
+      .column
+        .image
+          img(src='https://assets-news.housing.com/news/wp-content/uploads/2022/07/12214204/best-places-to-visit-in-Tamil-Nadu-Chennai-shutterstock_1731845158.jpg' alt='Image 1')
+      .column1
+        .description
+          h5 CHENNAI
+          p
+            | Famous places include Government Museum Chennai, Santhome Cathedral Basilica, Fort St George Museum, Elliot’s Beach, Vivekananda House, etc. Chennai is connected by an international airport and railway station so tourists can reach the city from any corner of the world.
+    .container-l
+      .column
+        .image
+          img.img1(src='https://assets-news.housing.com/news/wp-content/uploads/2022/07/12214204/best-places-to-visit-in-Tamil-Nadu-Chennai-shutterstock_1731845158.jpg' alt='Image 1')
+      .column1
+        .description
+          h5 CHENNAI
+          p
+            | Famous places include Government Museum Chennai, Santhome Cathedral Basilica, Fort St George Museum, Elliot’s Beach, Vivekananda House, etc. Chennai is connected by an international airport and railway station so tourists can reach the city from any corner of the world.
+    script(src='/static/script/script.js')
+    footer
+      .box-container
+        .box
+          h3 Contact
+          p Email: keetz@gmail.com
+          p Phone: 123-456-7890
+        .box
+          h3 About
+          p We have a best music consert and tour plans
+        .box
+          h3 Location
+          p 123 Main Street, Dubai Main road, Dubai
+      br
+      p(style='color: aliceblue;') © 2023 Keetz holidays. All rights reserved.

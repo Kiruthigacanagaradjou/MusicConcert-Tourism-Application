@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+      h1 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+  
+      .booking-form {
+        max-width: 400px;
+        margin-left: auto;
+      }
+  
+      .form-group label {
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size: larger; height: 90px;">
+    
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand" href="home.html" style="padding-left: 20px;">
+          <img src="ccc5356effa75abb28f52b9e45a7d37e.jpg" width="30" height="30" alt="">
+          Holidays
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav" style="padding-left: 520px;">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="demo.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
+            <li class="nav-item"><a class="nav-link" href="concert.html">Music concert</a></li>
+            <li class="nav-item"><a class="nav-link" href="tour.html">Tourism</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container-mt">
+   
+    <div class="paragraph-section" style="text-align: center;">
+      <h1>Music Concert</h1>
+    <p>
+      Music is a universal language that transcends boundaries and connects people from all walks of life. It has the power to evoke emotions, tell stories, and create memorable experiences. Whether it's the infectious rhythm of a lively pop song or the soothing melody of a classical composition, music has the ability to touch our hearts and souls. Join us at the Music Concert for an unforgettable evening filled with incredible performances and a celebration of the magic of music!
+    </p>
+  </div>
+    
+   <div class="container">
+    <h2 style="text-align: center;">Booking Form</h2>
+    <form id="bookingForm">
+      <div class="row mb-3">
+              
+        <label for="name" class="form-label">Name:<span class="required">*</span></label>
+          <input type="text" class="form-control" id="bname" name="name" required pattern="[A-Za-z\s]+" placeholder="Enter your name" required minlength="2" required>
+    </div>
+      <div class="row mb-3">
+          <label for="email" class="form-label">Email:<span class="required">*</span></label>
+          <input type="email" class="form-control" id="bemail" name="email" required pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" maxlength="50" placeholder="Enter Email" required>
+      </div>
+      <div class="row mb-3">
+        <label for="ticket" class="form-label">Tickets:<span class="required">*</span></label>
+        <input type="number" class="form-control" id="ticket" name="ticket" min="1" max="10" required>
+      </div>
+
+
+      <button type="submit" class="btn btn-dark">Book Now</button>
+    </form>
+    </div>
+  
+  <br><br>
+    
+  <div class="artist" style="text-align: center;">
+    <div class="row">
+      <div class="col">
+        <div class="artist-item">
+          <img class="img1" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5apVvv9PWcQ2Wqw8CmPPySP4fPiX31VhYEqgOYSn7sOabOhKe" alt="Anirudh"><br>
+          <h4>Anirudh</h4>
+          <p>Fri 27 Nov 2023</p>
+          <p>Venue:123, Sixth Floor, Chennai</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="artist-item">
+          <img class="img1" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSdZyLToXrv9aSQscK4puG-eAVvlyzwFa6i9oTesn_pGcyC_H1c2TvwUFcadjsvzg4wotMkic6h86DEGkQ" alt="A.R.Rahman">
+          <h4>A.R.Rahman</h4>
+          <p>Fri 27 Nov 2023</p>
+          <p>Venue:123, Sixth Floor, Chennai</p>
+        </div>
+      </div> 
+      <div class="col">
+        <div class="artist-item">
+          <img class="img1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkdHQUyyA3w5uGWCNGvHEdROnY7lxXjAfEVnMf2CbP3QdXfhQEVnn9YiEmBM_SFmKEGiw&s" alt="G.V.Prakash">
+          <h4>G.V.Prakash</h4>
+          <p>Fri 27 Nov 2023</p>
+          <p>Venue:123, Sixth Floor, Chennai</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+     </div>
+
+<br>
+
+<script> 
+//debugger
+var bookingForm = document.getElementById("bookingForm");
+bookingForm.addEventListener("submit", function() {
+     var name=document.getElementById("bname").value;
+     var email=document.getElementById("bemail").value;
+     var ticket=document.getElementById("ticket").value;
+     var booking = {
+        Name: name,
+        Email: email,
+        Ticket: ticket
+     };
+    var bookings=JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(booking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    bookingForm.reset();
+    alert("Booking successful!");
+});
+
+
+
+
+</script>
+     
+
+
+<footer>
+  <div class="box-container">
+    <div class="box">
+      <h3>Contact</h3>
+      <p>Email: keetz@gmail.com</p>
+      <p>Phone: 123-456-7890</p>
+    </div>
+
+    <div class="box">
+      <h3>About</h3>
+      <p>We have a best music consert and tour plans</p>
+    </div>
+
+    <div class="box">
+      <h3>Location</h3>
+      <p>123 Main Street, Dubai Main road, Dubai</p>
+    </div>
+  </div>
+  <br>
+  
+  <p style="color: aliceblue;">&copy; 2023 Keetz holidays. All rights reserved.</p>
+</footer>
+
+  
+</body>
+
+
+
+</html>
+
