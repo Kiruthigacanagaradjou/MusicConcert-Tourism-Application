@@ -1,0 +1,143 @@
+[
+  {
+    "name": "viviv",
+    "email": "kika@gmail.com",
+    "gender": "on",
+    "password": "Kika@2211",
+    "confirm-password": "Kika@2211",
+    "country": "IND",
+    "state": "Tamil nadu",
+    "countryCode": "+91",
+    "phoneNumber": "9898980909",
+    "role": "user"
+  },
+  {
+    "name": "pooja",
+    "email": "pooja@gmail.com",
+    "gender": "female",
+    "password": "Kiku@2211",
+    "confirm-password": "Kiku@2211",
+    "country": "IND",
+    "state": "Tamil nadu",
+    "countryCode": "+91",
+    "phoneNumber": "9898980909",
+    "role": "admin"
+  },
+  {
+    "name": "viviv",
+    "email": "kiru@gmail.com",
+    "gender": "Female",
+    "password": "qwertyuiop",
+    "confirm-password": "qwertyuip",
+    "interested_area": "Music concertExplore Nature",
+    "country": "USA",
+    "state": "Florida",
+    "countryCode": "+1",
+    "phoneNumber": "9898980909"
+  },
+  {
+    "name": "vhfhhjhjjk",
+    "email": "kiru@gmail.com",
+    "gender": "Female",
+    "password": "qwertyuiop",
+    "confirm-password": "qwertyuip",
+    "interested_area": "Music concertExplore Nature",
+    "country": "USA",
+    "state": "Florida",
+    "countryCode": "+1",
+    "phoneNumber": "9898980909"
+  },
+  {
+    "name": "vikram",
+    "email": "vikram@gmail.com",
+    "gender": "Female",
+    "password": "qwertyuiop",
+    "confirm-password": "qwertyuip",
+    "interested_area": "Music concertExplore Nature",
+    "country": "USA",
+    "state": "Florida",
+    "countryCode": "+1",
+    "phoneNumber": "9898980909"
+  },
+  {
+    "name": "vikram",
+    "email": "vikram@gmail.com",
+    "gender": "Female",
+    "password": "qwertyuiop",
+    "confirm-password": "qwertyuip",
+    "interested_area": "Music concertExplore Nature",
+    "country": "USA",
+    "state": "Florida",
+    "countryCode": "+1",
+    "phoneNumber": "9898980909"
+  },
+  {
+    "name": "vivian",
+    "email": "kikaaa@gmail.com",
+    "gender": "on",
+    "password": "Kikaa@2211",
+    "confirm-password": "Kikaa@2211",
+    "country": "IND",
+    "state": "Tamil nadu",
+    "countryCode": "+91",
+    "phoneNumber": "9898980909",
+    "role": "user"
+  },
+  {
+    "name": "vivjkerjkgkjerjk",
+    "email": "kikaaa@gmail.com",
+    "gender": "on",
+    "password": "Kikaa@2211",
+    "confirm-password": "Kikaa@2211",
+    "country": "IND",
+    "state": "Tamil nadu",
+    "countryCode": "+91",
+    "phoneNumber": "9898980909",
+    "role": "user"
+  },
+  {
+    "name": "kiki",
+    "email": "k@gmail.com",
+    "gender": "Female",
+    "password": "Moni@2211",
+    "confirm-password": "Moni@2211",
+    "country": "USA",
+    "state": "Arizona",
+    "countryCode": "+1",
+    "phoneNumber": "9150382171"
+  },
+  {
+    "name": "moni",
+    "email": "moni@gmail.com",
+    "gender": "Female",
+    "password": "Moni@345",
+    "confirm-password": "Moni@345",
+    "country": "USA",
+    "state": "Florida",
+    "countryCode": "+1",
+    "phoneNumber": "9150382171"
+  },
+  {
+    "name": "keetzz",
+    "email": "keetz@gmil.com",
+    "gender": "Female",
+    "password": "Keetz@2211",
+    "confirm-password": "Keetz@2211",
+    "country": "USA",
+    "state": "Delaware",
+    "countryCode": "+1",
+    "phoneNumber": "9150343171"
+  },
+  {
+    "name": "vetyrweufu",
+    "email": "kikaaa@gmail.com",
+    "gender": "on",
+    "password": "Kikaa@2211",
+    "confirm-password": "Kikaa@2211",
+    "country": "IND",
+    "state": "Tamil nadu",
+    "countryCode": "+91",
+    "phoneNumber": "9898980909",
+    "role": "user"
+  }
+]
